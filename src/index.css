@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 12% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 12% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 12% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 186 95% 45%;
+    --primary-foreground: 217 33% 7%;
+
+    --secondary: 265 70% 45%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 12% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 28 90% 55%;
+    --accent-foreground: 217 33% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 18%;
+    --ring: 186 95% 45%;
+
+    --radius: 0.75rem;
+    
+    --glow: 186 95% 45%;
+    --gradient-start: 220 12% 6%;
+    --gradient-end: 240 18% 10%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(135deg, rgba(30,60,90,0.05) 25%, transparent 25%, transparent 50%, rgba(30,60,90,0.05) 50%, rgba(30,60,90,0.05) 75%, transparent 75%, transparent);
+    background-size: 12px 12px, 400px 400px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glow-effect {
+    box-shadow: 0 0 30px hsl(var(--glow) / 0.45);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 24px hsl(var(--glow) / 0.6);
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+
+  /* scrollbar for sliders */
+  .no-scrollbar::-webkit-scrollbar { height: 10px; }
+  .no-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .no-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary))); border-radius: 9999px; opacity: 0.95; }
+  .no-scrollbar { scrollbar-width: thin; scrollbar-color: hsl(var(--primary)) transparent; }
+
+  .glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
+
+  .cert-card { transition: transform .25s ease, box-shadow .25s ease; }
+  .cert-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 8px 30px rgba(2,6,23,0.6); }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
