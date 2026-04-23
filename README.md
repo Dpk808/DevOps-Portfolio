@@ -2,7 +2,8 @@
 
 ## Project info
 
-https://dpk808.github.io/Portfolio_Website2/
+
+https://dev-ops-portfolio-eta.vercel.app/
 
 
 This project is built with:
